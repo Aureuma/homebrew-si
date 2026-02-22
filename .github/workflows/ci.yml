@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  formula-sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate formula syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q '^class Si < Formula' Formula/si.rb
+          grep -q 'test do' Formula/si.rb
+
+      - name: Ensure update script is executable
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -x scripts/update-formula.sh
+
+  install-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap and install si
+        shell: bash
+        run: |
+          set -euo pipefail
+          brew tap --overwrite aureuma/si "${GITHUB_WORKSPACE}"
+          brew install si
+
+      - name: Verify si runs
+        shell: bash
+        run: |
+          set -euo pipefail
+          si version
