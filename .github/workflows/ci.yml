@@ -38,7 +38,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          brew tap --overwrite aureuma/si "${GITHUB_WORKSPACE}"
+          brew untap aureuma/si || true
+          brew tap aureuma/si "${GITHUB_WORKSPACE}"
           brew install si
 
       - name: Verify si runs

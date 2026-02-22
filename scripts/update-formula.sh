@@ -108,7 +108,12 @@ class Si < Formula
   end
 
   def install
-    binary = Dir["si_*/si"].first
+    stage = buildpath/"si-stage"
+    stage.mkpath
+    system "tar", "-xzf", cached_download, "-C", stage
+
+    binary = Dir["#{stage}/si_*/si"].first
+    binary = (stage/"si").to_s if binary.nil? && (stage/"si").exist?
     raise "si binary not found in release archive" if binary.nil? || binary.empty?
 
     bin.install binary => "si"
