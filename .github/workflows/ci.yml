@@ -31,19 +31,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-
-      - name: Tap and install si
+      - name: Tap and install si in Homebrew container
         shell: bash
         run: |
           set -euo pipefail
-          brew untap aureuma/si || true
-          brew tap aureuma/si "${GITHUB_WORKSPACE}"
-          brew install si
-
-      - name: Verify si runs
-        shell: bash
-        run: |
-          set -euo pipefail
-          si version
+          docker run --rm \
+            -v "${GITHUB_WORKSPACE}:/workspace/homebrew-si" \
+            ghcr.io/homebrew/ubuntu22.04 \
+            bash -lc 'set -euo pipefail; git config --global --add safe.directory /workspace/homebrew-si/.git; brew untap aureuma/si >/dev/null 2>&1 || true; brew tap aureuma/si /workspace/homebrew-si; brew install si; si version'
