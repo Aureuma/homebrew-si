@@ -38,4 +38,4 @@ jobs:
           docker run --rm \
             -v "${GITHUB_WORKSPACE}:/workspace/homebrew-si" \
             ghcr.io/homebrew/ubuntu22.04 \
-            bash -lc 'set -euo pipefail; git config --global --add safe.directory /workspace/homebrew-si/.git; brew untap aureuma/si >/dev/null 2>&1 || true; brew tap aureuma/si /workspace/homebrew-si; brew install si; si version'
+            bash -lc 'set -euo pipefail; git config --global --add safe.directory /workspace/homebrew-si/.git; brew untap aureuma/si >/dev/null 2>&1 || true; brew tap aureuma/si /workspace/homebrew-si; brew install aureuma/si/si; si version'

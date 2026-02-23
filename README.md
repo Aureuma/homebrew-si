@@ -5,14 +5,22 @@ Homebrew tap for the `si` CLI release binaries.
 ## Installation
 
 ```bash
-brew tap aureuma/si
-brew install si
+brew install aureuma/si/si
 ```
+
+Homebrew third-party install syntax is `user/repo/formula`, so `brew install aureuma/si` is not a valid formula reference.
 
 Or install formula directly (no auto-updates from tap):
 
 ```bash
 brew install https://raw.githubusercontent.com/Aureuma/homebrew-si/main/Formula/si.rb
+```
+
+Optional explicit tap flow:
+
+```bash
+brew tap aureuma/si
+brew install si
 ```
 
 ## Usage
