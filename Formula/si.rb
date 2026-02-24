@@ -1,26 +1,26 @@
 class Si < Formula
   desc "AI-first CLI for orchestrating coding agents and provider operations"
   homepage "https://github.com/Aureuma/si"
-  version "0.48.0"
+  version "0.49.0"
   license "AGPL-3.0-only"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/Aureuma/si/releases/download/v0.48.0/si_0.48.0_darwin_arm64.tar.gz"
-      sha256 "bc8904c9b4a4d82b1349952d45171925c2b282778b616ee4ede634c3c1122e65"
+      url "https://github.com/Aureuma/si/releases/download/v0.49.0/si_0.49.0_darwin_arm64.tar.gz"
+      sha256 "217f1b6bf4257f550fcc1d94697e9c0b8a23be64aad4accb31b05231456a30b0"
     else
-      url "https://github.com/Aureuma/si/releases/download/v0.48.0/si_0.48.0_darwin_amd64.tar.gz"
-      sha256 "db690dc490f155f561e6bad316c7eea922aa7773e4786a242a5eae0b035ec91f"
+      url "https://github.com/Aureuma/si/releases/download/v0.49.0/si_0.49.0_darwin_amd64.tar.gz"
+      sha256 "7fcd904eaddce3dddd281085715da3864af5da68090b1c5fa4d4a4793b511928"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/Aureuma/si/releases/download/v0.48.0/si_0.48.0_linux_arm64.tar.gz"
-      sha256 "0a2cfaea428e3d1471e5c36aecfa68a3532d105fa523056191348acd63cbdaa8"
+      url "https://github.com/Aureuma/si/releases/download/v0.49.0/si_0.49.0_linux_arm64.tar.gz"
+      sha256 "64ef139a30be12ccb7f484821a5be1b2a7f1debef9fa43c10e6797002dc17d8c"
     elsif Hardware::CPU.intel?
-      url "https://github.com/Aureuma/si/releases/download/v0.48.0/si_0.48.0_linux_amd64.tar.gz"
-      sha256 "41dd19c042ac75116ba58ff7b984d50341ea09d9498009be38434be3ea7efe9f"
+      url "https://github.com/Aureuma/si/releases/download/v0.49.0/si_0.49.0_linux_amd64.tar.gz"
+      sha256 "41963bdc3f3c6ee17832b10535b239d21b0b363bc189d680cbb2323519ec52f5"
     end
   end
 
