@@ -26,16 +26,16 @@ jobs:
           test -x scripts/update-formula.sh
 
   install-smoke:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Tap and install si in Homebrew container
+      - name: Tap and install si with Homebrew
         shell: bash
         run: |
           set -euo pipefail
-          docker run --rm \
-            -v "${GITHUB_WORKSPACE}:/workspace/homebrew-si" \
-            ghcr.io/homebrew/ubuntu22.04 \
-            bash -lc 'set -euo pipefail; git config --global --add safe.directory /workspace/homebrew-si/.git; brew untap aureuma/si >/dev/null 2>&1 || true; brew tap aureuma/si /workspace/homebrew-si; brew install aureuma/si/si; si version'
+          brew untap aureuma/si >/dev/null 2>&1 || true
+          brew tap aureuma/si "${GITHUB_WORKSPACE}"
+          brew install aureuma/si/si
+          si version
