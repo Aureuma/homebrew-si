@@ -7,20 +7,20 @@ class Si < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/Aureuma/si/releases/download/v0.54.0/si_0.54.0_darwin_arm64.tar.gz"
-      sha256 "62f57513d94d682758e2dd2dbd5a981329c2843daa974cb20e86ced2fe1e2c7c"
+      sha256 "a725940b4e1483394dfd1baa7d0e4e3efb66cbb36d1ea40955dd505f3b3b7b9b"
     else
       url "https://github.com/Aureuma/si/releases/download/v0.54.0/si_0.54.0_darwin_amd64.tar.gz"
-      sha256 "a3f8476319c9fc9750e15819a6296b968b369de9895bef47289a605efe031805"
+      sha256 "56e5397a3ad7c5bb7b3a06fb5e436109a0a95310def672ab1461b54bec29255d"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/Aureuma/si/releases/download/v0.54.0/si_0.54.0_linux_arm64.tar.gz"
-      sha256 "d80635eb0d1b24ee3fc0717ba730c2892d8ab8610fc7c0587786d8f7efc5b171"
+      sha256 "606887bb8e2a815fc39c137109186da12920dafee22ff06880e4370c65520ddf"
     elsif Hardware::CPU.intel?
       url "https://github.com/Aureuma/si/releases/download/v0.54.0/si_0.54.0_linux_amd64.tar.gz"
-      sha256 "81e5a4f33f1e03e6e6db12220bdc91c5886bbfc1f44933a3cbb3102c7172da93"
+      sha256 "1899c4ef8561d783d10e75cee6ab6a5877cbfe3cb6039b20ed14884c191f26bc"
     end
   end
 
