@@ -64,7 +64,9 @@ jobs:
           set -euo pipefail
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add Formula/si.rb
+          IFS=. read -r major minor patch < VERSION
+          printf '%s.%s.%s\n' "$major" "$minor" "$((patch + 1))" > VERSION
+          git add Formula/si.rb VERSION
           if git diff --cached --quiet; then
             echo "No formula changes"
             exit 0
